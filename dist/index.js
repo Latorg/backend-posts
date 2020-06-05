@@ -10,7 +10,7 @@ const body_parser_1 = __importDefault(require("body-parser"));
 const post_1 = __importDefault(require("./routes/post"));
 const express_fileupload_1 = __importDefault(require("express-fileupload"));
 const cors_1 = __importDefault(require("cors"));
-const mysql_1 = __importDefault(require("mysql"));
+// import mysql from 'mysql';
 const server = new server_1.default();
 // Body parse
 server.app.use(body_parser_1.default.urlencoded({ extended: true }));
@@ -34,23 +34,21 @@ mongoose_1.default.connect('mongodb://localhost:27017/fotosgram', { useNewUrlPar
     console.log('Base de datos ONLINE');
 });
 // Conectar MySQL
-const connection = mysql_1.default.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "bd_clinicas"
-});
-connection.connect(err => {
-    if (err)
-        throw err;
-    console.log("Base de datos MYSQL ONLINE");
-});
-connection.query('SELECT * FROM tb_Fichas WHERE IDFicha <= 2', function (err, result) {
-    if (err)
-        throw err;
-    for (let ficha in result) {
-        console.log('The solution is: ', ficha);
-    }
-});
+// const connection = mysql.createConnection({
+//     host        : "localhost",
+//     user        : "root",
+//     password    : "",
+//     database    : "bd_clinicas"
+// });
+// connection.connect( err => {
+//     if( err ) throw err;
+//     console.log("Base de datos MYSQL ONLINE");
+// });
+// connection.query('SELECT * FROM tb_Fichas WHERE IDFicha <= 2', function(err, result) {
+//     if (err) throw err;
+//     for( let ficha in result ){
+//         console.log('The solution is: ', result);
+//     }
+// });
 //Levantar Express
 server.start(() => console.log(`Servidor corriendo en puerto ${server.port}`));

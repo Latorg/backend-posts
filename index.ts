@@ -5,7 +5,7 @@ import bodyParser from 'body-parser';
 import postRoutes from './routes/post';
 import fileUpload from 'express-fileupload';
 import cors from 'cors';
-import mysql from 'mysql';
+// import mysql from 'mysql';
 
 const server = new Server();
 
@@ -37,26 +37,26 @@ mongoose.connect('mongodb://localhost:27017/fotosgram',
                 })
 
 // Conectar MySQL
-const connection = mysql.createConnection({
-    host        : "localhost",
-    user        : "root",
-    password    : "",
-    database    : "bd_clinicas"
+// const connection = mysql.createConnection({
+//     host        : "localhost",
+//     user        : "root",
+//     password    : "",
+//     database    : "bd_clinicas"
     
-});
+// });
 
-connection.connect( err => {
-    if( err ) throw err;
-    console.log("Base de datos MYSQL ONLINE");
-});
+// connection.connect( err => {
+//     if( err ) throw err;
+//     console.log("Base de datos MYSQL ONLINE");
+// });
 
 
-connection.query('SELECT * FROM tb_Fichas WHERE IDFicha <= 2', function(err, result) {
-    if (err) throw err;
-    for( let ficha in result ){
-        console.log('The solution is: ', ficha);
-    }
-});
+// connection.query('SELECT * FROM tb_Fichas WHERE IDFicha <= 2', function(err, result) {
+//     if (err) throw err;
+//     for( let ficha in result ){
+//         console.log('The solution is: ', result);
+//     }
+// });
 
 
 //Levantar Express
